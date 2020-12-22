@@ -1,0 +1,65 @@
+<style>
+	html, body {
+		margin: 0;
+		overflow: hidden;
+		max-width: 100vw;
+		max-height: 100vh;
+	}
+	#divflex {
+		display: flex;
+		margin-top: 5px;
+		flex: 1;
+	}
+	input {
+		font-size: 18px;
+		margin-right: 5px;
+	}
+</style>
+
+<body>
+	<video controls></video>
+	<br>
+	<div id="divflex">
+		<input type="button" value="360p" onclick="app(360)">
+		<input type="button" value="480p" onclick="app(480)">
+		<input type="button" value="720p" onclick="app(720)">
+		<input type="button" value="HD" onclick="app('hd')">
+	</div>
+</body>
+	
+<script>
+	function res(i) {
+		var hd = 'https://kshows.to/goto.php?url=aHR0cHM6LyAdrefsdsdfwerFrefdsfrersfdsrfer363435349zdG9yYWdlLmdvb2dsZWFwaXMuY29tLzI4NjIxMS9UU0oyRzdOSjNPQkwvc3QyM19vbmNlLXVwb24tYS10aW1lLWVwaXNvZGUtMS4xNjA4NTgyNzQ0Lm1wNA==';
+		var tigaenamnol = 'https://storage-4.cloud9xx.com/asian4146/54d7dcd870a2d51d02dbcaef36696ed1/EP.1.360p.mp4?token=9lBju0NopbS0JX_rN6isGA&expires=1608629629&id=124413';
+		var empatdelapannol = 'https://storage-4.cloud9xx.com/asian4146/54d7dcd870a2d51d02dbcaef36696ed1/EP.1.480p.mp4?token=Ofquq8znlTZ3LzJOPzZpeA&expires=1608629629&id=124413';
+		var tujuhduanol = 'https://storage-4.cloud9xx.com/asian4146/54d7dcd870a2d51d02dbcaef36696ed1/EP.1.720p.mp4?token=POjrQhD2_M4ZFhbRiscvJQ&expires=1608629629&id=124413';
+		
+		if (i == 'hd') {
+			return hd;
+		} else if (i == 360) {
+			return tigaenamnol;
+		} else if (i == 480) {
+			return empatdelapannol;
+		} else {
+			return tujuhduanol;
+		}
+	}
+	
+	var video = document.getElementsByTagName('video')[0];
+	
+	video.onkeydown = e => {
+		e.preventDefault();
+		
+		if (document.fullscreen) {
+			if (e.key == 'ArrowLeft') {
+				video.currentTime -= 10;
+			} else {
+				video.currentTime += 10;
+			}
+		}
+	}
+	
+	function app(i) {
+		video.src = res(i);
+	}
+</script>
